@@ -52,4 +52,35 @@ describe "Michi" do
 		expect( juego.validar_casilla(0) ).to eq true
 	end
 	
+	it ("Inicio de juego puntaje jugador B") do
+		juego=Michi.new
+		expect( juego.puntaje_b ).to eq 0
+	end
+
+	it ("Jugador B marca pos 0") do
+		juego=Michi.new
+		juego.marcar_casilla("B",0)
+		expect( juego.pos_0 ).to eq "O"
+	end
+
+	it ("Jugador B marca pos 1") do
+		juego=Michi.new
+		juego.marcar_casilla("B",1)
+		expect( juego.pos_1 ).to eq "O"
+	end
+	
+	it ("Jugador B marca pos 2") do
+		juego=Michi.new
+		juego.marcar_casilla("B",2)
+		expect( juego.pos_2 ).to eq "O"
+	end
+	
+	it ("Jugador B gana") do
+		juego=Michi.new
+		juego.marcar_casilla("B",0)
+		juego.marcar_casilla("B",1)
+		juego.marcar_casilla("B",2)
+		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador B"
+	end
+
 end
