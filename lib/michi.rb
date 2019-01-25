@@ -45,6 +45,7 @@ class Michi
 			@mensaje_error = "La casilla ya ha sido marcada"
 			return false
 		end
+		@mensaje_error = ""
 		return true
 	end	
 

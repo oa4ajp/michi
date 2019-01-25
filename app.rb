@@ -11,37 +11,39 @@ get '/' do
 end
 
 post '/posicion0' do
-    @@juego.marcar_casilla("A", 0)
-
+    
+    marcar("A", 0)
     @posicion0 =  @@juego.pos_0
     @posicion1 =  @@juego.pos_1
     @posicion2 =  @@juego.pos_2
-
-    @mensaje_ganador = @@juego.verificar_ganador
-    
     erb :michi
 end
 
 post '/posicion1' do
-    @@juego.marcar_casilla("A", 1)
+    marcar("A", 1)
 
     @posicion0 =  @@juego.pos_0
     @posicion1 =  @@juego.pos_1
     @posicion2 =  @@juego.pos_2
-
-    @mensaje_ganador = @@juego.verificar_ganador
 
     erb :michi
 end
 
 post '/posicion2' do
-    @@juego.marcar_casilla("A", 2)
+    marcar("A", 2)
 
     @posicion0 =  @@juego.pos_0
     @posicion1 =  @@juego.pos_1
     @posicion2 =  @@juego.pos_2
 
-    @mensaje_ganador = @@juego.verificar_ganador
-
     erb :michi
+end
+
+def marcar(jugador, posicion)
+    if @@juego.validar_casilla(posicion)
+        @@juego.marcar_casilla(jugador, posicion)
+        @mensaje = @@juego.verificar_ganador
+    else
+        @mensaje = @@juego.mostrar_error
+    end
 end
