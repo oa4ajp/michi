@@ -2,8 +2,8 @@ Given(/^Visito el index$/) do
   visit '/'
 end
 
-Then(/^Debo ver "(.*?)"$/) do |titulo|
-  last_response.body.should =~ /#{titulo}/m
+Then(/^Debo ver "(.*?)"$/) do |texto|
+  last_response.body.should =~ /#{texto}/m
 end
 
 When(/^El jugador A hace click en el boton "(.*?)"$/) do |idBoton|

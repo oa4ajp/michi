@@ -11,7 +11,7 @@ get '/' do
 end
 
 post '/posicion0' do
-    
+
     marcar("A", 0)
     @posicion0 =  @@juego.pos_0
     @posicion1 =  @@juego.pos_1
@@ -39,11 +39,18 @@ post '/posicion2' do
     erb :michi
 end
 
+post '/reiniciar' do
+  @@juego.reiniciar
+  @mensaje = @@juego.mostrar_mensaje
+
+  erb :michi
+end
+
 def marcar(jugador, posicion)
     if @@juego.validar_casilla(posicion)
         @@juego.marcar_casilla(jugador, posicion)
         @mensaje = @@juego.verificar_ganador
     else
-        @mensaje = @@juego.mostrar_error
+        @mensaje = @@juego.mostrar_mensaje
     end
 end

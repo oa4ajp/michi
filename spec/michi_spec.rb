@@ -43,15 +43,15 @@ describe "Michi" do
 		juego = Michi.new
 		juego.marcar_casilla("A", 0)
 		expect( juego.validar_casilla(0) ).to eq false
-		expect( juego.mostrar_error ).to eq "La casilla ya ha sido marcada"
+		expect( juego.mostrar_mensaje ).to eq "La casilla ya ha sido marcada"
 	end
 
 	it ("Jugador A marca pos 0 que no esta marcada") do
 		juego = Michi.new
-		
+
 		expect( juego.validar_casilla(0) ).to eq true
 	end
-	
+
 	it ("Inicio de juego puntaje jugador B") do
 		juego=Michi.new
 		expect( juego.puntaje_b ).to eq 0
@@ -68,13 +68,13 @@ describe "Michi" do
 		juego.marcar_casilla("B",1)
 		expect( juego.pos_1 ).to eq "O"
 	end
-	
+
 	it ("Jugador B marca pos 2") do
 		juego=Michi.new
 		juego.marcar_casilla("B",2)
 		expect( juego.pos_2 ).to eq "O"
 	end
-	
+
 	it ("Jugador B gana") do
 		juego=Michi.new
 		juego.marcar_casilla("B",0)
@@ -83,4 +83,15 @@ describe "Michi" do
 		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador B"
 	end
 
+	it ("Reiniciar juego") do
+		juego=Michi.new
+		juego.marcar_casilla("B",0)
+		juego.marcar_casilla("B",1)
+		juego.marcar_casilla("B",2)
+		juego.reiniciar
+
+		expect( juego.pos_0 ).to eq ""
+		expect( juego.pos_1 ).to eq ""
+		expect( juego.pos_2 ).to eq ""
+	end
 end
