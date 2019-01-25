@@ -37,13 +37,71 @@ describe "Michi" do
 		expect( juego.pos_2 ).to eq "X"
 	end
 
-	it ("Jugador A gana") do
+	it ("Jugador A gana fila 1") do
 		juego=Michi.new
 		juego.marcar_casilla("A",0)
 		juego.marcar_casilla("A",1)
 		juego.marcar_casilla("A",2)
 		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador A"
 	end
+
+	it ("Jugador A gana fila 2") do
+		juego=Michi.new
+		juego.marcar_casilla("A",3)
+		juego.marcar_casilla("A",4)
+		juego.marcar_casilla("A",5)
+		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador A"
+	end
+
+	it ("Jugador A gana fila 3") do
+		juego=Michi.new
+		juego.marcar_casilla("A",6)
+		juego.marcar_casilla("A",7)
+		juego.marcar_casilla("A",8)
+		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador A"
+	end	
+	
+	it ("Jugador A gana columna 1") do
+		juego=Michi.new
+		juego.marcar_casilla("A",0)
+		juego.marcar_casilla("A",3)
+		juego.marcar_casilla("A",6)
+		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador A"
+	end
+
+	it ("Jugador A gana columna 2") do
+		juego=Michi.new
+		juego.marcar_casilla("A",1)
+		juego.marcar_casilla("A",4)
+		juego.marcar_casilla("A",7)
+		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador A"
+	end
+
+	it ("Jugador A gana columna 3") do
+		juego=Michi.new
+		juego.marcar_casilla("A",2)
+		juego.marcar_casilla("A",5)
+		juego.marcar_casilla("A",8)
+		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador A"
+	end	
+
+
+	it ("Jugador A gana diagonal 1") do
+		juego=Michi.new
+		juego.marcar_casilla("A",0)
+		juego.marcar_casilla("A",4)
+		juego.marcar_casilla("A",8)
+		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador A"
+	end
+
+	it ("Jugador A gana diagonal 2") do
+		juego=Michi.new
+		juego.marcar_casilla("A",2)
+		juego.marcar_casilla("A",4)
+		juego.marcar_casilla("A",6)
+		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador A"
+	end
+
 
 	it ("Jugador A marca pos 0 que esta marcada") do
 		juego = Michi.new
@@ -99,13 +157,70 @@ describe "Michi" do
 		expect( juego.pos_5 ).to eq "O"
 	end	
 	
-	it ("Jugador B gana") do
+	it ("Jugador B gana fila 1") do
 		juego=Michi.new
 		juego.marcar_casilla("B",0)
 		juego.marcar_casilla("B",1)
 		juego.marcar_casilla("B",2)
 		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador B"
 	end
+
+	it ("Jugador B gana fila 2") do
+		juego=Michi.new
+		juego.marcar_casilla("B",3)
+		juego.marcar_casilla("B",4)
+		juego.marcar_casilla("B",5)
+		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador B"
+	end
+
+	it ("Jugador B gana fila 3") do
+		juego=Michi.new
+		juego.marcar_casilla("B",6)
+		juego.marcar_casilla("B",7)
+		juego.marcar_casilla("B",8)
+		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador B"
+	end	
+
+	it ("Jugador B gana columna 1") do
+		juego=Michi.new
+		juego.marcar_casilla("B",0)
+		juego.marcar_casilla("B",3)
+		juego.marcar_casilla("B",6)
+		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador B"
+	end
+
+	it ("Jugador B gana columna 2") do
+		juego=Michi.new
+		juego.marcar_casilla("B",1)
+		juego.marcar_casilla("B",4)
+		juego.marcar_casilla("B",7)
+		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador B"
+	end
+
+	it ("Jugador B gana columna 3") do
+		juego=Michi.new
+		juego.marcar_casilla("B",2)
+		juego.marcar_casilla("B",5)
+		juego.marcar_casilla("B",8)
+		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador B"
+	end	
+
+
+	it ("Jugador B gana diagonal 1") do
+		juego=Michi.new
+		juego.marcar_casilla("B",0)
+		juego.marcar_casilla("B",4)
+		juego.marcar_casilla("B",8)
+		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador B"
+	end
+
+	it ("Jugador B gana diagonal 2") do
+		juego=Michi.new
+		juego.marcar_casilla("B",2)
+		juego.marcar_casilla("B",4)
+		juego.marcar_casilla("B",6)
+		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador B"
+	end	
 
 	it ("Reiniciar juego") do
 		juego=Michi.new
@@ -130,12 +245,12 @@ describe "Michi" do
 		juego.marcar_casilla("A",0)
 		juego.marcar_casilla("B",1)
 		juego.marcar_casilla("A",2)
-		juego.marcar_casilla("B",3)
-		juego.marcar_casilla("A",4)
-		juego.marcar_casilla("B",5)
-		juego.marcar_casilla("A",6)
-		juego.marcar_casilla("B",7)
-		juego.marcar_casilla("A",8)
+		juego.marcar_casilla("A",3)
+		juego.marcar_casilla("B",4)
+		juego.marcar_casilla("A",5)
+		juego.marcar_casilla("B",6)
+		juego.marcar_casilla("A",7)
+		juego.marcar_casilla("B",8)
 		expect( juego.verificar_ganador ).to eq "El juego queda empatado"
 	end
 end
