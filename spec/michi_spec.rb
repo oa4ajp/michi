@@ -6,6 +6,12 @@ describe "Michi" do
 		expect( juego.pos_0 ).to eq ""
 		expect( juego.pos_1 ).to eq ""
 		expect( juego.pos_2 ).to eq ""
+		expect( juego.pos_3 ).to eq ""
+		expect( juego.pos_4 ).to eq ""
+		expect( juego.pos_5 ).to eq ""
+		expect( juego.pos_6 ).to eq ""
+		expect( juego.pos_7 ).to eq ""
+		expect( juego.pos_8 ).to eq ""		
 	end
 
 	it ("Inicio de juego puntaje jugador A") do
@@ -111,5 +117,11 @@ describe "Michi" do
 		expect( juego.pos_0 ).to eq ""
 		expect( juego.pos_1 ).to eq ""
 		expect( juego.pos_2 ).to eq ""
+		expect( juego.pos_3 ).to eq ""
+		expect( juego.pos_4 ).to eq ""
+		expect( juego.pos_5 ).to eq ""
+		expect( juego.pos_6 ).to eq ""
+		expect( juego.pos_7 ).to eq ""
+		expect( juego.pos_8 ).to eq ""				
 	end
 end

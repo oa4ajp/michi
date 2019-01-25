@@ -10,6 +10,9 @@ get '/' do
     @@posicion3 =  @@juego.pos_3
     @@posicion4 =  @@juego.pos_4
     @@posicion5 =  @@juego.pos_5    
+    @@posicion6 =  @@juego.pos_6
+    @@posicion7 =  @@juego.pos_7
+    @@posicion8 =  @@juego.pos_8       
 
     erb :michi
 end
@@ -35,19 +38,29 @@ end
 
 post '/posicion3' do
     marcar(@@turno, 3)
-
-
     erb :michi
 end
 post '/posicion4' do
     marcar(@@turno, 4)
-
     erb :michi
 end
 
 post '/posicion5' do
     marcar(@@turno, 5)
+    erb :michi
+end
 
+post '/posicion6' do
+    marcar(@@turno, 6)
+    erb :michi
+end
+post '/posicion7' do
+    marcar(@@turno, 7)
+    erb :michi
+end
+
+post '/posicion8' do
+    marcar(@@turno, 8)
     erb :michi
 end
 
@@ -61,6 +74,9 @@ post '/reiniciar' do
   @@posicion3 =  @@juego.pos_3
   @@posicion4 =  @@juego.pos_4
   @@posicion5 =  @@juego.pos_5
+  @@posicion6 =  @@juego.pos_6
+  @@posicion7 =  @@juego.pos_7
+  @@posicion8 =  @@juego.pos_8  
 
   @@turno = "A"
 
@@ -86,5 +102,8 @@ def marcar(jugador, posicion)
     @@posicion3 =  @@juego.pos_3
     @@posicion4 =  @@juego.pos_4
     @@posicion5 =  @@juego.pos_5  
+    @@posicion6 =  @@juego.pos_6
+    @@posicion7 =  @@juego.pos_7
+    @@posicion8 =  @@juego.pos_8     
 
 end
