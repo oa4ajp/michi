@@ -124,4 +124,18 @@ describe "Michi" do
 		expect( juego.pos_7 ).to eq ""
 		expect( juego.pos_8 ).to eq ""				
 	end
+
+	it ("El juego empata") do
+		juego=Michi.new
+		juego.marcar_casilla("A",0)
+		juego.marcar_casilla("B",1)
+		juego.marcar_casilla("A",2)
+		juego.marcar_casilla("B",3)
+		juego.marcar_casilla("A",4)
+		juego.marcar_casilla("B",5)
+		juego.marcar_casilla("A",6)
+		juego.marcar_casilla("B",7)
+		juego.marcar_casilla("A",8)
+		expect( juego.verificar_ganador ).to eq "El juego queda empatado"
+	end
 end

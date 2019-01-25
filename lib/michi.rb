@@ -68,15 +68,25 @@ class Michi
 		if (@posiciones[0] == "X" &&  @posiciones[1] == "X" && @posiciones[2] == "X")
 			return "El ganador es el Jugador A"
 		elsif (@posiciones[3] == "X" &&  @posiciones[4] == "X" && @posiciones[5] == "X")
-				return "El ganador es el Jugador A"		
+				return "El ganador es el Jugador A"
 		elsif (@posiciones[6] == "X" &&  @posiciones[7] == "X" && @posiciones[8] == "X")
-				return "El ganador es el Jugador A"							
+				return "El ganador es el Jugador A"
 		elsif (@posiciones[0] == "O" &&  @posiciones[1] == "O" && @posiciones[2] == "O")
 			return "El ganador es el Jugador B"
 		elsif (@posiciones[3] == "O" &&  @posiciones[4] == "O" && @posiciones[5] == "O")
-			return "El ganador es el Jugador B"	
+			return "El ganador es el Jugador B"
 		elsif (@posiciones[6] == "O" &&  @posiciones[7] == "O" && @posiciones[8] == "O")
-			return "El ganador es el Jugador B"					
+			return "El ganador es el Jugador B"
+		else
+			@esEmpate = true
+			@posiciones.each do |valor|
+				if (valor == "")
+					@esEmpate = false
+				end
+			end
+			if (@esEmpate == true)
+				return "El juego queda empatado"
+			end
 		end
 		return ""
 	end

@@ -44,3 +44,17 @@ Scenario: Reiniciar Juego
   Given Visito el index
   When El jugador A hace click en el boton "Reiniciar Juego"
   Then Debo ver "Juego Reiniciado"
+
+Scenario: Verificar empate
+    Given Visito el index
+    When El jugador A hace click en el boton "boton1"
+    And El jugador B hace click en el boton "boton2"
+    And El jugador A hace click en el boton "boton3"
+    And El jugador B hace click en el boton "boton4"
+    And El jugador A hace click en el boton "boton5"
+    And El jugador B hace click en el boton "boton6"
+    And El jugador B hace click en el boton "boton7"
+    And El jugador B hace click en el boton "boton8"
+    And El jugador B hace click en el boton "boton9"
+    Then Debo ver "El juego queda empatado"
+
