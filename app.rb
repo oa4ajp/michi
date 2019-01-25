@@ -3,38 +3,50 @@ require "./lib/michi.rb"
 
 get '/' do
     @@juego = Michi.new
-    @posicion0 =  @@juego.pos_0
-    @posicion1 =  @@juego.pos_1
-    @posicion2 =  @@juego.pos_2
+    @@turno = "A"
+    @@posicion0 =  @@juego.pos_0
+    @@posicion1 =  @@juego.pos_1
+    @@posicion2 =  @@juego.pos_2
+    @@posicion3 =  @@juego.pos_3
+    @@posicion4 =  @@juego.pos_4
+    @@posicion5 =  @@juego.pos_5    
 
     erb :michi
 end
 
 post '/posicion0' do
+    marcar(@@turno, 0)
 
-    marcar("A", 0)
-    @posicion0 =  @@juego.pos_0
-    @posicion1 =  @@juego.pos_1
-    @posicion2 =  @@juego.pos_2
     erb :michi
 end
 
 post '/posicion1' do
-    marcar("A", 1)
-
-    @posicion0 =  @@juego.pos_0
-    @posicion1 =  @@juego.pos_1
-    @posicion2 =  @@juego.pos_2
+    marcar(@@turno, 1)
 
     erb :michi
 end
 
 post '/posicion2' do
-    marcar("A", 2)
+    marcar(@@turno, 2)
 
-    @posicion0 =  @@juego.pos_0
-    @posicion1 =  @@juego.pos_1
-    @posicion2 =  @@juego.pos_2
+
+    erb :michi
+end
+
+post '/posicion3' do
+    marcar(@@turno, 3)
+
+
+    erb :michi
+end
+post '/posicion4' do
+    marcar(@@turno, 4)
+
+    erb :michi
+end
+
+post '/posicion5' do
+    marcar(@@turno, 5)
 
     erb :michi
 end
@@ -43,6 +55,15 @@ post '/reiniciar' do
   @@juego.reiniciar
   @mensaje = @@juego.mostrar_mensaje
 
+  @@posicion0 =  @@juego.pos_0
+  @@posicion1 =  @@juego.pos_1
+  @@posicion2 =  @@juego.pos_2
+  @@posicion3 =  @@juego.pos_3
+  @@posicion4 =  @@juego.pos_4
+  @@posicion5 =  @@juego.pos_5
+
+  @@turno = "A"
+
   erb :michi
 end
 
@@ -50,7 +71,20 @@ def marcar(jugador, posicion)
     if @@juego.validar_casilla(posicion)
         @@juego.marcar_casilla(jugador, posicion)
         @mensaje = @@juego.verificar_ganador
+        if @@turno == "A"
+            @@turno = "B"
+        else
+            @@turno = "A"
+        end
     else
         @mensaje = @@juego.mostrar_mensaje
     end
+
+    @@posicion0 =  @@juego.pos_0
+    @@posicion1 =  @@juego.pos_1
+    @@posicion2 =  @@juego.pos_2
+    @@posicion3 =  @@juego.pos_3
+    @@posicion4 =  @@juego.pos_4
+    @@posicion5 =  @@juego.pos_5  
+
 end

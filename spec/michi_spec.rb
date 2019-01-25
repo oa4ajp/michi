@@ -75,6 +75,24 @@ describe "Michi" do
 		expect( juego.pos_2 ).to eq "O"
 	end
 
+	it ("Jugador B marca pos 3") do
+		juego=Michi.new
+		juego.marcar_casilla("B",3)
+		expect( juego.pos_3 ).to eq "O"
+	end
+	
+	it ("Jugador B marca pos 4") do
+		juego=Michi.new
+		juego.marcar_casilla("B",4)
+		expect( juego.pos_4 ).to eq "O"
+	end
+	
+	it ("Jugador B marca pos 5") do
+		juego=Michi.new
+		juego.marcar_casilla("B",5)
+		expect( juego.pos_5 ).to eq "O"
+	end	
+	
 	it ("Jugador B gana") do
 		juego=Michi.new
 		juego.marcar_casilla("B",0)

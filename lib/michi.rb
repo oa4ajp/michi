@@ -1,7 +1,7 @@
 class Michi
 
 	def initialize
-		@posiciones = ["", "", ""]
+		@posiciones = ["", "", "","", "", ""]
 		@mensaje = ""
 	end
 
@@ -15,6 +15,18 @@ class Michi
 
 	def pos_2
 		@posiciones[2]
+	end
+
+	def pos_3
+		@posiciones[3]
+	end
+
+	def pos_4
+		@posiciones[4]
+	end
+
+	def pos_5
+		@posiciones[5]
 	end
 
 	def puntaje_a
@@ -42,8 +54,12 @@ class Michi
 	def verificar_ganador
 		if (@posiciones[0] == "X" &&  @posiciones[1] == "X" && @posiciones[2] == "X")
 			return "El ganador es el Jugador A"
+		elsif (@posiciones[3] == "X" &&  @posiciones[4] == "X" && @posiciones[5] == "X")
+				return "El ganador es el Jugador A"			
 		elsif (@posiciones[0] == "O" &&  @posiciones[1] == "O" && @posiciones[2] == "O")
 			return "El ganador es el Jugador B"
+		elsif (@posiciones[3] == "O" &&  @posiciones[4] == "O" && @posiciones[5] == "O")
+			return "El ganador es el Jugador B"			
 		end
 		return ""
 	end
@@ -58,7 +74,7 @@ class Michi
 	end
 
 	def reiniciar
-		@posiciones = ["", "", ""]
+		@posiciones = ["", "", "", "", "", ""]
 		@mensaje = "Juego Reiniciado"
 	end
 

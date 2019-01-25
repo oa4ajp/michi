@@ -9,3 +9,7 @@ end
 When(/^El jugador A hace click en el boton "(.*?)"$/) do |idBoton|
   click_button(idBoton)
 end
+
+When(/^El jugador B hace click en el boton "(.*?)"$/) do |idBoton|
+  click_button(idBoton)
+end

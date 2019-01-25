@@ -4,22 +4,37 @@
 
 
 <div style="width:100%; diplay:block; float: left;">
-        <div style="width:25%; float:left; display:block;">
+        <div style="width:33%; float:left; display:block;">
         <form method="post" action="/posicion0">
-            <input type="submit" value="<%= @posicion0 %>" id="boton1" name="boton1">
+            <input type="submit" value="<%= @@posicion0 %>" id="boton1" name="boton1">
         </form>
         </div>
-        <div style="width:25%; float:left; display:block;">
+        <div style="width:33%; float:left; display:block;">
         <form method="post" action="/posicion1">
-            <input type="submit" value="<%= @posicion1 %>" id="boton2"  name="boton2">
+            <input type="submit" value="<%= @@posicion1 %>" id="boton2"  name="boton2">
         </form>
         </div>
-        <div style="width:25%; float:left; display:block;">
+        <div style="width:33%; float:left; display:block;">
             <form method="post" action="/posicion2">
-                <input type="submit" value="<%= @posicion2 %>" id="boton3"  name="boton3">
+                <input type="submit" value="<%= @@posicion2 %>" id="boton3"  name="boton3">
             </form>
         </div>
-
+        <br>
+        <div style="width:33%; float:left; display:block;">
+        <form method="post" action="/posicion3">
+            <input type="submit" value="<%= @@posicion3 %>" id="boton4" name="boton4">
+        </form>
+        </div>
+        <div style="width:33%; float:left; display:block;">
+        <form method="post" action="/posicion4">
+            <input type="submit" value="<%= @@posicion4 %>" id="boton5"  name="boton5">
+        </form>
+        </div>
+        <div style="width:33%; float:left; display:block;">
+            <form method="post" action="/posicion5">
+                <input type="submit" value="<%= @@posicion5 %>" id="boton6"  name="boton6">
+            </form>
+        </div>
         <div>
           <form method="post" action="/reiniciar">
             <input type="submit" value="Reiniciar Juego">
