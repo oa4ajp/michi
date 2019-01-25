@@ -3,11 +3,11 @@
 </div>
 
 
-<div style="width:100%; diplay:block; float: left;">  
+<div style="width:100%; diplay:block; float: left;">
         <div style="width:25%; float:left; display:block;">
         <form method="post" action="/posicion0">
             <input type="submit" value="<%= @posicion0 %>" id="boton1" name="boton1">
-        </form>    
+        </form>
         </div>
         <div style="width:25%; float:left; display:block;">
         <form method="post" action="/posicion1">
@@ -18,6 +18,9 @@
             <form method="post" action="/posicion2">
                 <input type="submit" value="<%= @posicion2 %>" id="boton3"  name="boton3">
             </form>
-        </div>   
-</div>
+        </div>
 
+        <div>
+          <%= @mensaje_ganador %>
+        </div>
+</div>
