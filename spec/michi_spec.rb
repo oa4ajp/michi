@@ -30,4 +30,13 @@ describe "Michi" do
 		juego.marcar_casilla("A",2)
 		expect( juego.pos_2 ).to eq "X"
 	end
+
+	it ("Jugador A gana") do
+		juego=Michi.new
+		juego.marcar_casilla("A",0)
+		juego.marcar_casilla("A",1)
+		juego.marcar_casilla("A",2)
+		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador A"
+	end
+
 end
