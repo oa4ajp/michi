@@ -3,6 +3,10 @@ class Michi
 	def initialize
 		@posiciones = ["", "", "", "", "", "", "", "", ""]
 		@mensaje = ""
+		@ronda = 1
+		@puntaje_a = 0
+		@puntaje_b = 0
+		@turno = "A"
 	end
 
 	def pos_0
@@ -42,16 +46,48 @@ class Michi
 	end
 
 
-	def puntaje_a
-		0
+	def mostrar_puntaje_a
+		@puntaje_a
 	end
 
-	def puntaje_b
-		0
+	def mostrar_puntaje_b
+		@puntaje_b
 	end
 
 	def mostrar_mensaje
 		@mensaje
+	end
+
+	def mostrar_ronda
+		"Ronda " + @ronda.to_s
+	end
+
+	def mostrar_puntaje
+		@puntaje_a.to_s + " - " + @puntaje_b.to_s
+	end
+
+	def mostrar_jugador
+		"Turno de Jugador " + @turno
+	end
+
+	def mostrar_turno
+		@turno
+	end
+
+	def mostrar_simbolo_a
+		"X"
+	end
+
+	def mostrar_simbolo_b
+		"O"
+	end
+
+	def rotar_turno
+		if(@turno == "A")
+			@turno = "B"
+		else
+			@turno = "A"
+		end
 	end
 
 	def marcar_casilla (jugador, posicion)
@@ -130,6 +166,7 @@ class Michi
 	def reiniciar
 		@posiciones = ["", "", "", "", "", "", "", "", ""]
 		@mensaje = "Juego Reiniciado"
+		@turno = "A"
 	end
 
 end

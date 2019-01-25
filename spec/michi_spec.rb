@@ -16,7 +16,7 @@ describe "Michi" do
 
 	it ("Inicio de juego puntaje jugador A") do
 		juego=Michi.new
-		expect( juego.puntaje_a ).to eq 0
+		expect( juego.mostrar_puntaje_a ).to eq 0
 	end
 
 	it ("Jugador A marca pos 0") do
@@ -118,7 +118,7 @@ describe "Michi" do
 
 	it ("Inicio de juego puntaje jugador B") do
 		juego=Michi.new
-		expect( juego.puntaje_b ).to eq 0
+		expect( juego.mostrar_puntaje_b ).to eq 0
 	end
 
 	it ("Jugador B marca pos 0") do
@@ -252,5 +252,26 @@ describe "Michi" do
 		juego.marcar_casilla("A",7)
 		juego.marcar_casilla("B",8)
 		expect( juego.verificar_ganador ).to eq "El juego queda empatado"
+	end
+
+	it ("Mostrar el turno actual de A") do
+		juego=Michi.new
+		expect( juego.mostrar_ronda ).to eq "Ronda 1"
+		expect( juego.mostrar_puntaje ).to eq "0 - 0"
+		expect( juego.mostrar_jugador ).to eq "Turno de Jugador A"
+		expect( juego.mostrar_simbolo_a ).to eq "X"
+
+	end
+
+
+	it ("Mostrar el turno actual de B") do
+		juego=Michi.new
+		juego.marcar_casilla("A",0)
+		juego.rotar_turno
+		expect( juego.mostrar_ronda ).to eq "Ronda 1"
+		expect( juego.mostrar_puntaje ).to eq "0 - 0"
+		expect( juego.mostrar_jugador ).to eq "Turno de Jugador B"
+		expect( juego.mostrar_simbolo_b ).to eq "O"
+
 	end
 end

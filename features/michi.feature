@@ -58,3 +58,10 @@ Scenario: Verificar empate
     And El jugador B hace click en el boton "boton8"
     Then Debo ver "El juego queda empatado"
 
+Scenario: Mostrar el turno del Jugador A
+  Given Visito el index
+  Then Debo ver "Ronda 1"
+  And Debo ver "Puntaje: 0 - 0"
+  And Debo ver "Turno de Jugador A"
+  And Debo ver "Jugador A es X"
+
