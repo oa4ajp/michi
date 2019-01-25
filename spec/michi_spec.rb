@@ -39,11 +39,17 @@ describe "Michi" do
 		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador A"
 	end
 
-	#it("Jugador A marcar pos 0 que esta marcada") do
-	#	juego = Michi.new
-	#	juego.marcar_casilla("A", 0)
-	#	juego.marcar_casilla("A", 0)
-	#	expect ( juego.validar_casilla(0) ).to eq "La casilla ya ha sido marcada"
-	#end
+	it ("Jugador A marca pos 0 que esta marcada") do
+		juego = Michi.new
+		juego.marcar_casilla("A", 0)
+		expect( juego.validar_casilla(0) ).to eq false
+		expect( juego.mostrar_error ).to eq "La casilla ya ha sido marcada"
+	end
+
+	it ("Jugador A marca pos 0 que no esta marcada") do
+		juego = Michi.new
+		
+		expect( juego.validar_casilla(0) ).to eq true
+	end
 	
 end

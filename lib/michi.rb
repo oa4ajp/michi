@@ -2,6 +2,7 @@ class Michi
 
 	def initialize
 		@posiciones = ["", "", ""]
+		@mensaje_error = ""
 	end
 
 	def pos_0
@@ -20,6 +21,10 @@ class Michi
 		0
 	end
 
+	def mostrar_error
+		@mensaje_error
+	end
+
 	def marcar_casilla (jugador, posicion)
 		valor=""
 		if (jugador=="A")
@@ -34,5 +39,13 @@ class Michi
 		end
 		return ""
 	end
+
+	def validar_casilla (posicion)
+		if @posiciones[posicion] != ""
+			@mensaje_error = "La casilla ya ha sido marcada"
+			return false
+		end
+		return true
+	end	
 
 end
