@@ -1,7 +1,7 @@
 class Michi
 
 	def initialize
-		@posiciones = ["0", "0", "0"]
+		@posiciones = ["", "", ""]
 	end
 
 	def pos_0
@@ -21,7 +21,11 @@ class Michi
 	end
 
 	def marcar_casilla (jugador, posicion)
-		@posiciones[posicion] = jugador
+		valor=""
+		if (jugador=="A")
+			valor="X"
+		end
+		@posiciones[posicion] = valor
 	end
 
 end
