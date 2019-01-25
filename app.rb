@@ -79,6 +79,16 @@ post '/reiniciar' do
 
   @@turno = "A"
 
+    @@ronda = @@juego.mostrar_ronda
+    @@puntaje = "Puntaje: " + @@juego.mostrar_puntaje
+    @@jugador = @@juego.mostrar_jugador
+
+    if(@@juego.mostrar_turno =="A")
+    	@@simbolo = "Jugador A es "+ @@juego.mostrar_simbolo_a
+    else
+    	@@simbolo = "Jugador B es "+ @@juego.mostrar_simbolo_b
+    end
+
   erb :michi
 end
 
