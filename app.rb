@@ -12,6 +12,17 @@ get '/' do
     @@posicion6 =  @@juego.pos_6
     @@posicion7 =  @@juego.pos_7
     @@posicion8 =  @@juego.pos_8
+
+    @@estilo1 = ""
+    @@estilo2 = ""
+    @@estilo3 = ""
+    @@estilo4 = ""
+    @@estilo5 = ""
+    @@estilo6 = ""
+    @@estilo7 = ""
+    @@estilo8 = ""
+    @@estilo9 = ""
+
     @@ronda = @@juego.mostrar_ronda
     @@puntaje = "Puntaje: " + @@juego.mostrar_puntaje
     @@jugador = @@juego.mostrar_jugador
@@ -93,8 +104,18 @@ post '/reiniciar' do
 end
 
 def marcar(jugador, posicion)
+  @@estilo1 = ""
+  @@estilo2 = ""
+  @@estilo3 = ""
+  @@estilo4 = ""
+  @@estilo5 = ""
+  @@estilo6 = ""
+  @@estilo7 = ""
+  @@estilo8 = ""
+  @@estilo9 = ""
+
     if (@@juego.validar_fin==1)
-	@mensaje=@@juego.verificar_ganador + ", el juego termino"
+	     @mensaje=@@juego.verificar_ganador + ", el juego termino"
     elsif(@@juego.mostrar_borrado == 1)
 
     	@@juego.marcar_casilla(jugador, posicion)
@@ -119,8 +140,30 @@ def marcar(jugador, posicion)
 		    @@juego.rotar_borrado
 		    @@juego.resetear_efecto posicion
     elsif (efecto == 4)
+        casilla_random = rand(0...9)
         @mensaje = "Activaste un efecto. Se selecciono una casilla al azar"
-        @@juego.marcar_casilla(jugador, rand(0...9))
+        @@juego.marcar_casilla(jugador, casilla_random)
+        case casilla_random
+        when 0
+          @@estilo1 = "style=\"border-color: red;\""
+        when 1
+          @@estilo2 = "style=\"border-color: red;\""
+        when 2
+          @@estilo3 = "style=\"border-color: red;\""
+        when 3
+          @@estilo4 = "style=\"border-color: red;\""
+        when 4
+          @@estilo5 = "style=\"border-color: red;\""
+        when 5
+          @@estilo6 = "style=\"border-color: red;\""
+        when 6
+          @@estilo7 = "style=\"border-color: red;\""
+        when 7
+          @@estilo8 = "style=\"border-color: red;\""
+        when 8
+          @@estilo9 = "style=\"border-color: red;\""
+        end
+
         @@juego.rotar_turno
         @@juego.resetear_efecto posicion
 		else

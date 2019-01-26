@@ -9,7 +9,7 @@ class Michi
 		@puntaje_b = 0
 		@turno = "A"
 		@borrado = 0
-		@finalizo = 0
+		@finalizado = 0
 	end
 
 	def pos_0
@@ -218,9 +218,8 @@ class Michi
 		@efectos = [rand(0...5), rand(0...5), rand(0...5), rand(0...5), rand(0...5), rand(0...5), rand(0...5), rand(0...5), rand(0...5)]
 		@mensaje = "Juego Reiniciado"
 		@turno = "A"
-		@efectos = [rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4)]
 		@borrado = 0
-		@finalizo = 0
+		@finalizado = 0
 	end
 
 end
