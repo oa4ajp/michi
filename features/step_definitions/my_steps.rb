@@ -15,7 +15,9 @@ When(/^El jugador B hace click en el boton "(.*?)"$/) do |idBoton|
 end
 
 When(/^Casilla (\d+) devuelve (\d+)$/) do |boton, efecto|
-  if(boton == "9")
+  if(boton == "2")
+    @@juego.iniciar_efectos(0,efecto.to_i,0,0,0,0,0,0,0)
+  elsif(boton == "9")
     @@juego.iniciar_efectos(0,0,0,0,0,0,0,0,efecto.to_i)
   end
 end

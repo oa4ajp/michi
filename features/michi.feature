@@ -81,3 +81,8 @@ Scenario: Jugador A selecciona boton 9
   And El jugador A hace click en el boton "boton9"
   Then Debo ver "Activaste una trampa, pierdes tu turno"    
 
+Scenario: Jugador A selecciona boton 2
+  Given Visito el index
+  When Casilla 2 devuelve 1
+  And El jugador A hace click en el boton "boton2"
+  Then Debo ver "Activaste un comodin, tienes un turno adicional" 

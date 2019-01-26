@@ -291,4 +291,9 @@ describe "Michi" do
 		expect( juego.obtener_efecto(8)<=4 ).to eq true
 
 	end
+	it ("Jugador A selecciona pos 1 y obtiene el efecto de marcar doble") do
+		juego=Michi.new
+		juego.iniciar_efectos(0,1,0,0,0,0,0,0,0)
+		expect( juego.obtener_efecto(1)).to eq 1
+	end	
 end
