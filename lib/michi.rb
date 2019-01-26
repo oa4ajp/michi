@@ -219,6 +219,8 @@ class Michi
 		@mensaje = "Juego Reiniciado"
 		@turno = "A"
 		@efectos = [rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4)]
+		@borrado = 0
+		@finalizo = 0
 	end
 
 end
