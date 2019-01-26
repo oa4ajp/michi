@@ -106,14 +106,16 @@ def marcar(jugador, posicion)
             @@juego.resetear_efecto posicion
         else
             @@juego.marcar_casilla(jugador, posicion)
-            @mensaje = @@juego.verificar_ganador
             @@juego.rotar_turno
+        end
+        if (@@juego.verificar_ganador!="")
+            @mensaje=@@juego.verificar_ganador
         end
            
     else
         @mensaje = @@juego.mostrar_mensaje
     end
-
+    
     @@posicion0 = @@juego.pos_0
     @@posicion1 = @@juego.pos_1
     @@posicion2 = @@juego.pos_2
