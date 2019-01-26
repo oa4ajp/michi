@@ -94,9 +94,15 @@ end
 
 def marcar(jugador, posicion)
     if @@juego.validar_casilla(posicion)
-        @@juego.marcar_casilla(jugador, posicion)
-        @mensaje = @@juego.verificar_ganador
-        @@juego.rotar_turno
+	efecto=@@juego.obtener_efecto posicion
+	#Implementar otros efectos
+	if(efecto == 2)
+		@mensaje = "Activaste una trampa, pierdes tu turno"
+	else
+		@@juego.marcar_casilla(jugador, posicion)
+	        @mensaje = @@juego.verificar_ganador
+	end
+       	@@juego.rotar_turno   
     else
         @mensaje = @@juego.mostrar_mensaje
     end

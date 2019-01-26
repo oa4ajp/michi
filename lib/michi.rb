@@ -2,6 +2,7 @@ class Michi
 
 	def initialize
 		@posiciones = ["", "", "", "", "", "", "", "", ""]
+		@efectos = [rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4)]
 		@mensaje = ""
 		@ronda = 1
 		@puntaje_a = 0
@@ -98,6 +99,14 @@ class Michi
 			valor="O"
 		end
 		@posiciones[posicion] = valor
+	end
+
+	def iniciar_efectos (efe0, efe1, efe2, efe3, efe4, efe5, efe6, efe7, efe8)
+		@efectos = [efe0, efe1, efe2, efe3, efe4, efe5, efe6, efe7, efe8]
+	end
+
+	def obtener_efecto posicion
+		@efectos[posicion]
 	end
 
 	def verificar_ganador

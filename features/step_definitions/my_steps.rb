@@ -13,3 +13,14 @@ end
 When(/^El jugador B hace click en el boton "(.*?)"$/) do |idBoton|
   click_button(idBoton)
 end
+
+When(/^Casilla (\d+) devuelve (\d+)$/) do |boton, efecto|
+  if(boton == "9")
+    @@juego.iniciar_efectos(0,0,0,0,0,0,0,0,efecto.to_i)
+  end
+end
+
+When(/^Iniciar con efectos deshabilitados$/) do
+  @@juego.iniciar_efectos(0,0,0,0,0,0,0,0,0)
+end
+
