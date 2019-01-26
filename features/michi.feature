@@ -85,4 +85,22 @@ Scenario: Jugador A selecciona boton 2
   Given Visito el index
   When Casilla 2 devuelve 1
   And El jugador A hace click en el boton "boton2"
-  Then Debo ver "Activaste un comodin, tienes un turno adicional" 
+  Then Debo ver "Activaste un comodin, tienes un turno adicional"
+
+Scenario: Jugador A selecciona boton 4
+  Given Visito el index
+  When Casilla 4 devuelve 3
+  And El jugador A hace click en el boton "boton4"
+  Then Debo ver "Activaste un comodin, tienes que borrar el valor de una casilla"
+
+Scenario: Verificar ganador jugador A y juego finaliza
+    Given Visito el index
+    When Iniciar con efectos deshabilitados
+    And El jugador A hace click en el boton "boton1"
+    And El jugador B hace click en el boton "boton4"
+    And El jugador A hace click en el boton "boton2"
+    And El jugador B hace click en el boton "boton5"
+    And El jugador A hace click en el boton "boton3"
+    And El jugador A hace click en el boton "boton6"
+    Then Debo ver "El ganador es el Jugador A, el juego termino"
+

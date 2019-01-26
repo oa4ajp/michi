@@ -8,6 +8,8 @@ class Michi
 		@puntaje_a = 0
 		@puntaje_b = 0
 		@turno = "A"
+		@borrado = 0
+		@finalizo = 0
 	end
 
 	def pos_0
@@ -75,6 +77,14 @@ class Michi
 		@turno
 	end
 
+	def mostrar_borrado
+		@borrado
+	end
+
+	def validar_fin
+		@finalizado
+	end
+
 	def mostrar_simbolo_a
 		"X"
 	end
@@ -91,12 +101,22 @@ class Michi
 		end
 	end
 
+	def rotar_borrado
+		if(@borrado == 0)
+			@borrado = 1
+		else
+			@borrado = 0
+		end
+	end
+
 	def marcar_casilla (jugador, posicion)
 		valor=""
-		if (jugador=="A")
-			valor="X"
-		elsif (jugador=="B")
-			valor="O"
+		if (@borrado == 0)
+			if (jugador=="A")
+				valor="X"
+			elsif (jugador=="B")
+				valor="O"
+			end
 		end
 		@posiciones[posicion] = valor
 	end
@@ -115,42 +135,58 @@ class Michi
 
 	def verificar_ganador
 		if (@posiciones[0] == "X" &&  @posiciones[1] == "X" && @posiciones[2] == "X")
+			@finalizado = 1
 			return "El ganador es el Jugador A"
 		elsif (@posiciones[3] == "X" &&  @posiciones[4] == "X" && @posiciones[5] == "X")
+				@finalizado = 1
 				return "El ganador es el Jugador A"
 		elsif (@posiciones[6] == "X" &&  @posiciones[7] == "X" && @posiciones[8] == "X")
+				@finalizado = 1
 				return "El ganador es el Jugador A"
 
 		elsif (@posiciones[0] == "X" &&  @posiciones[3] == "X" && @posiciones[6] == "X")
+			@finalizado = 1
 			return "El ganador es el Jugador A"
 		elsif (@posiciones[1] == "X" &&  @posiciones[4] == "X" && @posiciones[7] == "X")
+				@finalizado = 1
 				return "El ganador es el Jugador A"
 		elsif (@posiciones[2] == "X" &&  @posiciones[5] == "X" && @posiciones[8] == "X")
+				@finalizado = 1
 				return "El ganador es el Jugador A"
 
 		elsif (@posiciones[0] == "X" &&  @posiciones[4] == "X" && @posiciones[8] == "X")
+				@finalizado = 1
 				return "El ganador es el Jugador A"
 		elsif (@posiciones[2] == "X" &&  @posiciones[4] == "X" && @posiciones[6] == "X")
+				@finalizado = 1
 				return "El ganador es el Jugador A"
 
 
 		elsif (@posiciones[0] == "O" &&  @posiciones[1] == "O" && @posiciones[2] == "O")
+			@finalizado = 1
 			return "El ganador es el Jugador B"
 		elsif (@posiciones[3] == "O" &&  @posiciones[4] == "O" && @posiciones[5] == "O")
+			@finalizado = 1
 			return "El ganador es el Jugador B"
 		elsif (@posiciones[6] == "O" &&  @posiciones[7] == "O" && @posiciones[8] == "O")
+			@finalizado = 1
 			return "El ganador es el Jugador B"
 
 		elsif (@posiciones[0] == "O" &&  @posiciones[3] == "O" && @posiciones[6] == "O")
+			@finalizado = 1
 			return "El ganador es el Jugador B"
 		elsif (@posiciones[1] == "O" &&  @posiciones[4] == "O" && @posiciones[7] == "O")
+				@finalizado = 1
 				return "El ganador es el Jugador B"
 		elsif (@posiciones[2] == "O" &&  @posiciones[5] == "O" && @posiciones[8] == "O")
+				@finalizado = 1
 				return "El ganador es el Jugador B"
 
 		elsif (@posiciones[0] == "O" &&  @posiciones[4] == "O" && @posiciones[8] == "O")
+				@finalizado = 1
 				return "El ganador es el Jugador B"
 		elsif (@posiciones[2] == "O" &&  @posiciones[4] == "O" && @posiciones[6] == "O")
+				@finalizado = 1
 				return "El ganador es el Jugador B"
 
 		else
@@ -161,6 +197,7 @@ class Michi
 				end
 			end
 			if (@esEmpate == true)
+				@finalizado = 1
 				return "El juego queda empatado"
 			end
 		end
@@ -180,6 +217,7 @@ class Michi
 		@posiciones = ["", "", "", "", "", "", "", "", ""]
 		@mensaje = "Juego Reiniciado"
 		@turno = "A"
+		@efectos = [rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4)]
 	end
 
 end

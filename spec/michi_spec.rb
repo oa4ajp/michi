@@ -296,4 +296,35 @@ describe "Michi" do
 		juego.iniciar_efectos(0,1,0,0,0,0,0,0,0)
 		expect( juego.obtener_efecto(1)).to eq 1
 	end	
+
+	it ("Jugador A selecciona pos 3, obtiene el efecto de marcar y borrar") do
+		juego=Michi.new
+		juego.iniciar_efectos(0,0,0,3,0,0,0,0,0)
+		expect( juego.obtener_efecto(3) ).to eq 3
+
+	end
+
+	it ("Jugador B selecciona pos 3, obtiene el efecto de marcar y borrar, y borra la posicion 0") do
+		juego=Michi.new
+		juego.iniciar_efectos(0,0,0,3,0,0,0,0,0)
+		juego.marcar_casilla("A",0)
+		expect( juego.pos_0 ).to eq "X"
+		juego.marcar_casilla("B",3)
+		expect( juego.obtener_efecto(3) ).to eq 3
+		juego.rotar_borrado
+		juego.marcar_casilla("B",0)
+		expect( juego.pos_0 ).to eq ""
+
+	end
+
+	it ("Juego termina ganando A") do
+		juego=Michi.new
+		juego.iniciar_efectos(0,0,0,0,0,0,0,0,0)
+		juego.marcar_casilla("A",0)
+		juego.marcar_casilla("A",1)
+		juego.marcar_casilla("A",2)
+		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador A"
+		expect( juego.validar_fin ).to eq 1
+
+	end
 end
