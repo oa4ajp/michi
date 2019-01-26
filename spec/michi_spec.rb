@@ -281,4 +281,14 @@ describe "Michi" do
 		expect( juego.obtener_efecto(8) ).to eq 2
 
 	end
+
+	it ("Jugador A selecciona pos 8, obtiene el efecto de no marcar y se resetea el efecto") do
+		juego=Michi.new
+		juego.iniciar_efectos(0,0,0,0,0,0,0,0,2)
+		expect( juego.obtener_efecto(8) ).to eq 2
+		juego.resetear_efecto(8)
+		expect( juego.obtener_efecto(8)>=0 ).to eq true
+		expect( juego.obtener_efecto(8)<=4 ).to eq true
+
+	end
 end

@@ -98,6 +98,7 @@ def marcar(jugador, posicion)
 	#Implementar otros efectos
 	if(efecto == 2)
 		@mensaje = "Activaste una trampa, pierdes tu turno"
+		@@juego.resetear_efecto posicion
 	else
 		@@juego.marcar_casilla(jugador, posicion)
 	        @mensaje = @@juego.verificar_ganador

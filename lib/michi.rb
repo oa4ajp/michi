@@ -109,6 +109,10 @@ class Michi
 		@efectos[posicion]
 	end
 
+	def resetear_efecto posicion
+		@efectos[posicion] = rand(0...4)
+	end
+
 	def verificar_ganador
 		if (@posiciones[0] == "X" &&  @posiciones[1] == "X" && @posiciones[2] == "X")
 			return "El ganador es el Jugador A"
