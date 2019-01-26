@@ -2,7 +2,7 @@ class Michi
 
 	def initialize
 		@posiciones = ["", "", "", "", "", "", "", "", ""]
-		@efectos = [rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4)]
+		@efectos = [rand(0...5), rand(0...5), rand(0...5), rand(0...5), rand(0...5), rand(0...5), rand(0...5), rand(0...5), rand(0...5)]
 		@mensaje = ""
 		@ronda = 1
 		@puntaje_a = 0
@@ -130,7 +130,7 @@ class Michi
 	end
 
 	def resetear_efecto posicion
-		@efectos[posicion] = rand(0...4)
+		@efectos[posicion] = rand(0...5)
 	end
 
 	def verificar_ganador
@@ -215,6 +215,7 @@ class Michi
 
 	def reiniciar
 		@posiciones = ["", "", "", "", "", "", "", "", ""]
+		@efectos = [rand(0...5), rand(0...5), rand(0...5), rand(0...5), rand(0...5), rand(0...5), rand(0...5), rand(0...5), rand(0...5)]
 		@mensaje = "Juego Reiniciado"
 		@turno = "A"
 		@efectos = [rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4), rand(0...4)]

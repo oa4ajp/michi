@@ -18,7 +18,9 @@ When(/^Casilla (\d+) devuelve (\d+)$/) do |boton, efecto|
   if(boton == "2")
     @@juego.iniciar_efectos(0,efecto.to_i,0,0,0,0,0,0,0)
   elsif(boton == "4")
-    @@juego.iniciar_efectos(0,0,0,3,0,0,0,0,0)
+    @@juego.iniciar_efectos(0,0,0,efecto.to_i,0,0,0,0,0)
+  elsif (boton == "7")
+    @@juego.iniciar_efectos(0,0,0,0,0,0,efecto.to_i,0,0)
   elsif(boton == "9")
     @@juego.iniciar_efectos(0,0,0,0,0,0,0,0,efecto.to_i)
   end
@@ -28,3 +30,6 @@ When(/^Iniciar con efectos deshabilitados$/) do
   @@juego.iniciar_efectos(0,0,0,0,0,0,0,0,0)
 end
 
+When(/^Selecciona al azar casilla (\d+) para el jugador "(.*?)"$/) do |posicion, jugador|
+  @@juego.marcar_casilla(jugador, posicion.to_i)
+end

@@ -8,10 +8,10 @@ get '/' do
     @@posicion2 =  @@juego.pos_2
     @@posicion3 =  @@juego.pos_3
     @@posicion4 =  @@juego.pos_4
-    @@posicion5 =  @@juego.pos_5    
+    @@posicion5 =  @@juego.pos_5
     @@posicion6 =  @@juego.pos_6
     @@posicion7 =  @@juego.pos_7
-    @@posicion8 =  @@juego.pos_8       
+    @@posicion8 =  @@juego.pos_8
     @@ronda = @@juego.mostrar_ronda
     @@puntaje = "Puntaje: " + @@juego.mostrar_puntaje
     @@jugador = @@juego.mostrar_jugador
@@ -75,7 +75,7 @@ post '/reiniciar' do
   @@posicion5 = @@juego.pos_5
   @@posicion6 = @@juego.pos_6
   @@posicion7 = @@juego.pos_7
-  @@posicion8 = @@juego.pos_8  
+  @@posicion8 = @@juego.pos_8
 
   @@turno = "A"
 
@@ -104,7 +104,7 @@ def marcar(jugador, posicion)
     elsif (@@juego.validar_casilla(posicion))
 
 		efecto=@@juego.obtener_efecto posicion
-	    
+
 		#Implementar otros efectos
 		if(efecto == 1)
 		    @@juego.marcar_casilla(jugador, posicion)
@@ -118,6 +118,11 @@ def marcar(jugador, posicion)
 		    @mensaje = "Activaste un comodin, tienes que borrar el valor de una casilla"
 		    @@juego.rotar_borrado
 		    @@juego.resetear_efecto posicion
+    elsif (efecto == 4)
+        @mensaje = "Activaste un efecto. Se selecciono una casilla al azar"
+        @@juego.marcar_casilla(jugador, rand(0...9))
+        @@juego.rotar_turno
+        @@juego.resetear_efecto posicion
 		else
 		    @@juego.marcar_casilla(jugador, posicion)
 		    @mensaje = @@juego.verificar_ganador
@@ -130,13 +135,13 @@ def marcar(jugador, posicion)
     else
         @mensaje = @@juego.mostrar_mensaje
     end
-    
+
     @@posicion0 = @@juego.pos_0
     @@posicion1 = @@juego.pos_1
     @@posicion2 = @@juego.pos_2
     @@posicion3 = @@juego.pos_3
     @@posicion4 = @@juego.pos_4
-    @@posicion5 = @@juego.pos_5  
+    @@posicion5 = @@juego.pos_5
     @@posicion6 = @@juego.pos_6
     @@posicion7 = @@juego.pos_7
     @@posicion8 = @@juego.pos_8

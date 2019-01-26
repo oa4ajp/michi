@@ -11,7 +11,7 @@ describe "Michi" do
 		expect( juego.pos_5 ).to eq ""
 		expect( juego.pos_6 ).to eq ""
 		expect( juego.pos_7 ).to eq ""
-		expect( juego.pos_8 ).to eq ""		
+		expect( juego.pos_8 ).to eq ""
 	end
 
 	it ("Inicio de juego puntaje jugador A") do
@@ -59,8 +59,8 @@ describe "Michi" do
 		juego.marcar_casilla("A",7)
 		juego.marcar_casilla("A",8)
 		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador A"
-	end	
-	
+	end
+
 	it ("Jugador A gana columna 1") do
 		juego=Michi.new
 		juego.marcar_casilla("A",0)
@@ -83,7 +83,7 @@ describe "Michi" do
 		juego.marcar_casilla("A",5)
 		juego.marcar_casilla("A",8)
 		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador A"
-	end	
+	end
 
 
 	it ("Jugador A gana diagonal 1") do
@@ -144,19 +144,19 @@ describe "Michi" do
 		juego.marcar_casilla("B",3)
 		expect( juego.pos_3 ).to eq "O"
 	end
-	
+
 	it ("Jugador B marca pos 4") do
 		juego=Michi.new
 		juego.marcar_casilla("B",4)
 		expect( juego.pos_4 ).to eq "O"
 	end
-	
+
 	it ("Jugador B marca pos 5") do
 		juego=Michi.new
 		juego.marcar_casilla("B",5)
 		expect( juego.pos_5 ).to eq "O"
-	end	
-	
+	end
+
 	it ("Jugador B gana fila 1") do
 		juego=Michi.new
 		juego.marcar_casilla("B",0)
@@ -179,7 +179,7 @@ describe "Michi" do
 		juego.marcar_casilla("B",7)
 		juego.marcar_casilla("B",8)
 		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador B"
-	end	
+	end
 
 	it ("Jugador B gana columna 1") do
 		juego=Michi.new
@@ -203,7 +203,7 @@ describe "Michi" do
 		juego.marcar_casilla("B",5)
 		juego.marcar_casilla("B",8)
 		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador B"
-	end	
+	end
 
 
 	it ("Jugador B gana diagonal 1") do
@@ -220,7 +220,7 @@ describe "Michi" do
 		juego.marcar_casilla("B",4)
 		juego.marcar_casilla("B",6)
 		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador B"
-	end	
+	end
 
 	it ("Reiniciar juego") do
 		juego=Michi.new
@@ -237,7 +237,7 @@ describe "Michi" do
 		expect( juego.pos_5 ).to eq ""
 		expect( juego.pos_6 ).to eq ""
 		expect( juego.pos_7 ).to eq ""
-		expect( juego.pos_8 ).to eq ""				
+		expect( juego.pos_8 ).to eq ""
 	end
 
 	it ("El juego empata") do
@@ -291,11 +291,12 @@ describe "Michi" do
 		expect( juego.obtener_efecto(8)<=4 ).to eq true
 
 	end
+
 	it ("Jugador A selecciona pos 1 y obtiene el efecto de marcar doble") do
 		juego=Michi.new
 		juego.iniciar_efectos(0,1,0,0,0,0,0,0,0)
 		expect( juego.obtener_efecto(1)).to eq 1
-	end	
+	end
 
 	it ("Jugador A selecciona pos 3, obtiene el efecto de marcar y borrar") do
 		juego=Michi.new
@@ -325,6 +326,12 @@ describe "Michi" do
 		juego.marcar_casilla("A",2)
 		expect( juego.verificar_ganador ).to eq "El ganador es el Jugador A"
 		expect( juego.validar_fin ).to eq 1
-
 	end
+
+	it ("Jugador A selecciona pos 6 y obtiene el efecto de marcar aleatoriamente") do
+		juego=Michi.new
+		juego.iniciar_efectos(0,0,0,0,0,0,4,0,0)
+		expect( juego.obtener_efecto(6)).to eq 4
+	end
+	
 end

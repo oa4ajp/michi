@@ -45,7 +45,7 @@ Scenario: El jugador B hace click en boton 1
   When Iniciar con efectos deshabilitados
   And El jugador A hace click en el boton "boton2"
   And El jugador B hace click en el boton "boton1"
-  Then Debo ver "O"    
+  Then Debo ver "O"
 
 Scenario: Reiniciar Juego
   Given Visito el index
@@ -79,7 +79,7 @@ Scenario: Jugador A selecciona boton 9
   Given Visito el index
   When Casilla 9 devuelve 2
   And El jugador A hace click en el boton "boton9"
-  Then Debo ver "Activaste una trampa, pierdes tu turno"    
+  Then Debo ver "Activaste una trampa, pierdes tu turno"
 
 Scenario: Jugador A selecciona boton 2
   Given Visito el index
@@ -104,3 +104,9 @@ Scenario: Verificar ganador jugador A y juego finaliza
     And El jugador A hace click en el boton "boton6"
     Then Debo ver "El ganador es el Jugador A, el juego termino"
 
+Scenario: Jugador A selecciona boton 7
+  Given Visito el index
+  When Casilla 7 devuelve 4
+  And El jugador A hace click en el boton "boton7"
+  And Selecciona al azar casilla 1 para el jugador "A"
+  Then Debo ver "Activaste un efecto. Se selecciono una casilla al azar."
